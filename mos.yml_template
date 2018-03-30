@@ -1,0 +1,46 @@
+author: OffGridNetworks
+description: Mongoose OS SSD1306, L298N for ESP32
+version: 1.0
+
+libs_version: ${mos.version}
+modules_version: ${mos.version}
+mongoose_os_version: ${mos.version}
+
+filesystem:
+  - fs
+
+sources:
+  - src
+
+libs:
+  - origin: https://github.com/mongoose-os-libs/ca-bundle
+  - origin: https://github.com/mongoose-os-libs/rpc-service-config
+  - origin: https://github.com/mongoose-os-libs/rpc-service-fs
+  - origin: https://github.com/mongoose-os-libs/rpc-uart
+  - origin: https://github.com/mongoose-os-libs/wifi
+  - origin: https://github.com/mongoose-os-libs/arduino-adafruit-ssd1306
+  - origin: https://github.com/mongoose-os-libs/mjs
+  - origin: https://github.com/mongoose-os-libs/http-server
+  - origin: https://github.com/mongoose-os-libs/ota-http-client
+  - origin: https://github.com/mongoose-os-libs/rpc-service-ota
+  - origin: https://github.com/mongoose-os-libs/pwm
+  - origin: https://github.com/mongoose-os-libs/blynk
+
+config_schema:
+  - ["i2c.enable", true]
+  - ["i2c.sda_gpio", 4]
+  - ["i2c.scl_gpio", 15]
+  - ["i2c.debug", false]
+  - ["app", "o", {title: "Custom app settings"}]
+  - ["app.ssd1306_reset_pin", "i", 16, {title: "SSD1306 display reset pin"}]
+  - ["wifi.ap.enable", false]
+  - ["wifi.sta.enable", true]
+  - ["wifi.sta.ssid", "XXXXXXXX"]
+  - ["wifi.sta.pass", "XXXXX"]
+  - ["debug.level", 3]
+  - ["blynk.enable", true]
+  - ["blynk.server", "blynk-cloud.com:8442"]
+  - ["blynk.auth", "XXXXXX"]
+
+
+manifest_version: 2017-05-18
